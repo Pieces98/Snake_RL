@@ -74,8 +74,8 @@ class SnakeEnv(gym.Env):
         
         self.snake.reward = 0.
         
-        if self.live_time > 30 and self.snake.reward < 0:
-            self.snake.reward -= -1
+        if self.live_time > 20 and self.snake.reward < 0:
+            self.snake.reward -= 1
             self.snake.done = True
             
         if self.energy_consum:
