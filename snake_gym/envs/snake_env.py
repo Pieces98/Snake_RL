@@ -54,7 +54,6 @@ class SnakeEnv(gym.Env):
         self.n_foods = n
 
     def reset(self):
-        print('RESET')
         self.snake.body.clear()
         self.foods.clear()
         empty_cells = self.get_empty_cells()
@@ -80,11 +79,11 @@ class SnakeEnv(gym.Env):
             self.snake.done = True
             
         if self.energy_consum:
-            self.snake.reward -= 0.1
+            self.snake.reward -= 0.01
         
         if self.snake.head in self.foods:
             self.live_time = 0
-            self.snake.reward += 20.
+            self.snake.reward += 10.
             self.snake.body.append(snake_tail)
             self.foods.remove(self.snake.head)
             empty_cells = self.get_empty_cells()
